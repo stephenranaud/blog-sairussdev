@@ -1,0 +1,35 @@
+
+/*Colors */
+
+$color-primary-1: #551CE2;
+$color-primary-2: #563962;
+$color-accent-1: #E8E80F;
+$color-accent-2: #E1831B;
+$color-accent-3: #FF4900;
+$color-txt: #F8F8F9;
+$color-dark-base: #DEDEDE;
+$color-dark-txt: #1F1F1F;
+
+/*Font*/
+
+$ff-heading: Teko, sans-serif;
+$ff-body: 'Exo 2', sans-serif;
+
+$fs--2: clamp(0.69rem, calc(0.69rem + 0.04vw), 0.72rem);
+$fs--1: clamp(0.83rem, calc(0.81rem + 0.11vw), 0.90rem);
+$fs-0: clamp(1.00rem, calc(0.96rem + 0.21vw), 1.13rem);
+$fs-1: clamp(1.20rem, calc(1.13rem + 0.34vw), 1.41rem);
+$fs-2: clamp(1.44rem, calc(1.33rem + 0.53vw), 1.76rem);
+$fs-3: clamp(1.73rem, calc(1.57rem + 0.78vw), 2.20rem);
+$fs-4: clamp(2.07rem, calc(1.85rem + 1.12vw), 2.75rem);
+$fs-5: clamp(2.49rem, calc(2.17rem + 1.58vw), 3.43rem);
+
+$fw-400: 400;
+$fw-500: 500;
+$fw-700: 700;
+
+/*Dimensions*/
+$container-size: 1200px;
+
+/*Transitons*/
+$transition: 0.25s ease-in-out;
