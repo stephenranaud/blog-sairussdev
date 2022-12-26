@@ -1,5 +1,7 @@
-interface Props {
-    theme?: 'dark' | 'light'
+import type { Theme } from "./SwipeTheme.jsx";
+
+type Props = {
+    theme?: Theme
 }
 
 export default function LogoMain({ theme = 'light' }: Props) {

@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint:scss": "stylelint 'src/**/*.{astro,scss,react}'"
   },
   "dependencies": {
     "@astrojs/image": "^0.12.1",
@@ -29,6 +30,10 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.30.0",
     "prettier": "^2.8.1",
-    "prettier-plugin-astro": "^0.7.0"
+    "prettier-plugin-astro": "^0.7.0",
+    "sass": "^1.57.1",
+    "stylelint": "^14.16.0",
+    "stylelint-config-recommended-scss": "^8.0.0",
+    "stylelint-config-standard": "^29.0.0"
   }
 }

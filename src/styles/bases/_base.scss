@@ -55,10 +55,8 @@ a:not([class]) {
 
 a {
   text-decoration: none;
-  display: inline-block;
   color: $color-accent-1;
   position: relative;
-
 }
 
 a::after{
@@ -67,7 +65,7 @@ a::after{
   border-bottom: dotted 4px $color-accent-1;
   left: 0;
   width: 15%;
-  bottom: -2px;
+  bottom: -4px;
   transition: width ease .2s;
 }
 
