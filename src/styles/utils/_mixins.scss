@@ -1,0 +1,28 @@
+@mixin mobile-only {
+  @media screen and (max-width: map-get($breakpoints, mobile)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+
+@mixin latop {
+  @media screen and (min-width: map-get($breakpoints, latop)) {
+    @content;
+  }
+}
+
+@mixin list-flex {
+  display: flex;
+  flex-direction: row;
+  gap: max(1.2rem, 10vmin);
+}
+
+@mixin flex-x {
+  display: flex;
+  flex-direction: row;
+}

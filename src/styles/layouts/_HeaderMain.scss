@@ -1,0 +1,15 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.header-main {
+  padding: 2.3rem min(1.3rem, 2.5vmin);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+@include tablet {
+  .header-main {
+    align-items: center;
+  }
+}

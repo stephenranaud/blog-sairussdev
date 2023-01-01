@@ -2,23 +2,6 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "target": "ES6",
-    "module": "ES2020",
-    "moduleResolution": "NodeNext",
-    "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "components/*": [
-        "./src/components/*"
-      ],
-      "layouts/*": [
-        "./src/layouts/*"
-      ],
-      "pages/*": [
-        "./src/pages/*"
-      ],
-      "styles/*": [
-        "./src/styles/*"
-      ]
-    }
+    "module": "ES2020"
   }
 }

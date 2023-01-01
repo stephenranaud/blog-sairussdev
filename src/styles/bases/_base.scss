@@ -1,17 +1,24 @@
+@import "../utils/mixins";
+
 /*-----------------------------------*\ 
     #NOMARLIZE AND RESET
 \*-----------------------------------*/
 
-*, ::before, ::after {
-    box-sizing: border-box;
+*,
+::before,
+::after {
+  box-sizing: border-box;
 }
 
-img, svg {
-    display: block;
-    max-width: 100%;
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
 }
@@ -20,17 +27,18 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-    background-color: $color-primary-1;
-    font-family: $ff-body;
-    color: $color-txt;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: $color-primary-1;
+  font-family: $ff-body;
+  color: $color-txt;
 }
 
 ul,
@@ -39,14 +47,14 @@ ol {
 }
 
 h1,
-h2, 
-h3, 
+h2,
+h3,
 h4 {
-    font-weight: var(--fw-700);
-    line-height: 1.2;
-    text-transform: capitalize;
-    font-family: var(--ff-heading);
-    margin-bottom: 1.625rem;
+  font-weight: var(--fw-700);
+  line-height: 1.2;
+  text-transform: capitalize;
+  font-family: var(--ff-heading);
+  margin-bottom: 1.625rem;
 }
 
 a:not([class]) {
@@ -56,27 +64,14 @@ a:not([class]) {
 a {
   text-decoration: none;
   color: $color-accent-1;
-  position: relative;
-}
-
-a::after{
-  position: absolute;
-  content: "";
-  border-bottom: dotted 4px $color-accent-1;
-  left: 0;
-  width: 15%;
-  bottom: -4px;
-  transition: width ease .2s;
-}
-
-a:hover::after {
-  width: 75%;
 }
 
 input,
 button,
 textarea,
-select { font: inherit; }
+select {
+  font: inherit;
+}
 
 button {
   cursor: pointer;
@@ -85,12 +80,10 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
 }
 
-  
 *,
 *::before,
 *::after {
@@ -100,6 +93,45 @@ button {
   scroll-behavior: auto;
 }
 
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background-color: $color-primary-1; }
-::-webkit-scrollbar-thumb { background-color: $color-accent-1; }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: $color-primary-1;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $color-accent-1;
+}
+
+/*-----------------------------------*\ 
+    #UTILITIES
+\*-----------------------------------*/
+
+@for $i from 1 through 10 {
+  .z-#{$i} {
+    z-index: 1 * $i;
+  }
+}
+
+.container {
+  max-width: $container-size;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+.Link {
+  position: relative;
+  &:hover::after {
+    width: 75%;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    border-bottom: dotted 4px $color-accent-1;
+    left: 0;
+    width: 15%;
+    bottom: -4px;
+    transition: width ease 0.2s;
+  }
+}

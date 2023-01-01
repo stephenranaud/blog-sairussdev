@@ -1,0 +1,59 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.nav-main {
+  line-height: 2rem;
+  position: relative;
+  padding: 1rem 1.5rem;
+  &__list {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &__menu-icon {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    scale: 1.5;
+    color: $color-txt;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.nav-main.active {
+  background-color: $color-accent-1;
+
+  .nav-main__list {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .nav-main__menu-icon {
+    color: $color-dark-txt;
+  }
+
+  a {
+    color: $color-dark-txt;
+    font-weight: $fw-700;
+    display: inline-block;
+  }
+}
+
+@include tablet {
+  .nav-main {
+    &__menu-icon {
+      display: none;
+    }
+
+    &__list {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      @include list-flex;
+    }
+  }
+}

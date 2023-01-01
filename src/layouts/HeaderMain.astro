@@ -1,8 +1,17 @@
 ---
-import CardPopular from "components/astro/CardPopular.astro";
+import NavMain from "../components/react/NavMain";
+import LogoMain from "../components/react/LogoMain";
 
+import "../styles/layouts/_HeaderMain.scss";
+import Link from "../components/react/Link";
 ---
 
-<header id="header-main" role="heading" aria-label="Header Main">
-   
+<header class="header-main">
+  <div class="header-main__logo">
+    <a href="/"><LogoMain /></a>
+  </div>
+
+  <div class="header-main__right">
+    <NavMain client:load />
+  </div>
 </header>
