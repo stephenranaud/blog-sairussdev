@@ -1,8 +1,6 @@
-import React from "react";
-
 import type { Theme } from "./SwipeTheme.jsx";
 
-import "../../styles/components/_LogoMain.scss";
+import "@styles/components/_LogoMain.scss";
 
 type Props = {
   theme?: Theme;

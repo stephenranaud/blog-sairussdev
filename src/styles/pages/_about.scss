@@ -1,0 +1,34 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 1rem max(1rem, min(2vmin, 2.5rem));
+}
+
+.about-section {
+  padding: 4rem 1rem 2.5rem;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 2px 3px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+
+  p {
+    margin: auto;
+  }
+}
+
+@include tablet {
+  .about-section {
+    width: 80%;
+    margin: auto;
+  }
+}
