@@ -1,7 +1,46 @@
 ---
+import Link from "../components/react/Link";
 import Layout from "../layouts/Layout.astro";
+
+import "../styles/pages/_404.scss";
 ---
 
-<Layout title="Accueil">
-  <main id="main404" class="full-page bg-stars"></main>
+<Layout title="404 | NOT FOUND">
+  <main id="main-404" class="main-404">
+    <section class="section-txt-404">
+      <h1>404</h1>
+      <p>Il semblerait que vous ayez,<br /> perdu pied sur terre</p>
+      <Link href="/">RETOUR A L'ACCUEIL</Link>
+    </section>
+
+    <div class="group-objects">
+      <div class="earth"></div>
+      <div class="tired">
+        <div class="spaceship"></div>
+      </div>
+    </div>
+
+    <div class="blinks_stars"></div>
+  </main>
 </Layout>
+
+<script>
+  function generatedElementStars(nberStars: number) {
+    const fragment = new DocumentFragment();
+
+    for (let index = 0; index < nberStars; index++) {
+      const div = document.createElement("div");
+
+      div.setAttribute("class", "star");
+      fragment.append(div);
+    }
+
+    return fragment;
+  }
+
+  const blicksStars = document.querySelector(".blinks_stars");
+
+  if (blicksStars) {
+    blicksStars.append(generatedElementStars(6));
+  }
+</script>
