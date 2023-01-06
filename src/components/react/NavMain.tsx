@@ -29,7 +29,7 @@ export default function NavMain(): JSX.Element {
         </li>
 
         <li>
-          <Link href="/about">A propos</Link>
+          <Link href="/a-propos">A propos</Link>
         </li>
       </ul>
     </nav>

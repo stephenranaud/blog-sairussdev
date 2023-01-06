@@ -3,6 +3,9 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "ES2020",
+    "types": [
+      "@astrojs/image/client"
+    ],
     "baseUrl": ".",
     "paths": {
       "@components/*": [
@@ -13,6 +16,12 @@
       ],
       "@styles/*": [
         "src/styles/*"
+      ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@utils": [
+        "src/utils"
       ]
     }
   }

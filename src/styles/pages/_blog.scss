@@ -1,0 +1,30 @@
+@import "../utils/vars";
+
+.heading-post {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: $color-dark-txt;
+  color: $color-dark-txt;
+
+  margin-bottom: -1rem;
+
+  &__mood-posts {
+    color: $color-txt;
+    padding: 2rem 0.7rem;
+  }
+
+  h3 {
+    margin-bottom: 0.8rem;
+    margin-top: 0.8rem;
+  }
+
+  & > * {
+    flex: 1 1 300px;
+    width: 50%;
+  }
+}
+
+.posts {
+  padding-top: min(10rem, max(5vmin, 14rem));
+  background-color: $color-accent-1;
+}

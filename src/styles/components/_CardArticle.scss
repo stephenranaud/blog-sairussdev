@@ -1,0 +1,36 @@
+@import "../utils//vars";
+
+.card-post {
+  display: flex;
+  flex-direction: column;
+  color: $color-dark-txt;
+  background-color: $color-accent-1;
+
+  .card-post__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  h3 {
+    margin-bottom: 0.8rem;
+    margin-top: 0.8rem;
+  }
+
+  &__heading {
+    img {
+      object-fit: cover;
+    }
+  }
+  &__body {
+    width: 100%;
+    padding: 2rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    p {
+      flex: 1;
+    }
+  }
+}

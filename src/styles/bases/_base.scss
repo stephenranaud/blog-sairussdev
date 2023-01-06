@@ -58,7 +58,6 @@ h4 {
   text-transform: capitalize;
   font-family: $ff-heading;
   margin-bottom: 1.625rem;
-  width: min-content;
 }
 
 h1 {
@@ -81,6 +80,7 @@ p {
   max-width: 65ch;
   font-family: $ff-body;
   font-size: $fs-1;
+  margin-bottom: 1.5rem;
 }
 
 a:not([class]) {
@@ -177,4 +177,34 @@ button {
 
 .center-by-margin {
   margin: auto;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-x {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.label-category {
+  text-transform: capitalize;
+  font-size: $fs--1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 45px;
+    background-color: $color-accent-2;
+  }
 }

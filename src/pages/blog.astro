@@ -1,5 +1,100 @@
 ---
+import { Image } from "@astrojs/image/components";
+
+import MetricPost from "@components/astro/MetricPost.astro";
+import GridCardArticle from "@layouts/GridCardArticle.astro";
 import Layout from "@layouts/Layout.astro";
+import Button from "@components/astro/Button.astro";
+
+import type { PostInterface } from "@models/Post";
+import { getFirstMoodPost } from "@models/Post";
+
+import "@styles/pages/_blog.scss";
+
+let allPosts = await Astro.glob<PostInterface>("../pages/posts/*.md");
+allPosts = allPosts.filter((post) => !post.frontmatter.draft);
+
+const posts = allPosts.map((post) => {
+  if (!post.frontmatter) {
+    throw Error("Page empty" + post.url);
+  }
+
+  let postWithMetrics = post.frontmatter;
+
+  const metrics = {
+    ...postWithMetrics.metrics,
+    createAt: postWithMetrics.metrics.createAt,
+    updateAt: postWithMetrics.metrics.createAt,
+    readingTime: 111,
+    numberViews: 1213,
+  };
+
+  postWithMetrics = { ...postWithMetrics, metrics };
+
+  return postWithMetrics;
+});
+
+let moodPost = getFirstMoodPost(posts);
+const uniqueTags = [
+  ...new Set(
+    posts
+      .map((post) => post.tags)
+      .flat()
+      .sort((a, b) => a.localeCompare(b))
+  ),
+];
+console.log(uniqueTags);
 ---
 
-<Layout title="Blog">Blog</Layout>
+<Layout title="Blog">
+  <main>
+    <section class="heading-post container">
+      {
+        moodPost && (
+          <article class="heading-post__mood-posts">
+            <div class="heading-post__mood-posts-heroImg">
+              <Image
+                src={moodPost.heroImage.url}
+                width={544}
+                height={284}
+                format="jpg"
+                alt={moodPost.heroImage.alt}
+              />
+            </div>
+            <div class="heading-post__mood-posts-infos">
+              <h3>{moodPost.title}</h3>
+              <div class="label-category">{moodPost.category}</div>
+
+              <p>{moodPost.description}</p>
+
+              <div class="flex-x">
+                <MetricPost metrics={moodPost.metrics} />{" "}
+                <a href="">
+                  <Button type="button" className="btn-primary">
+                    Lire
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </article>
+        )
+      }
+      <article class="heading-post__last-articles"></article>
+    </section>
+
+    <section class="posts-search__sort">
+      <div class="posts-search__tags"></div>
+      <div class="posts-search__input"></div>
+    </section>
+
+    {
+      posts && (
+        <section class="posts">
+          <div class="posts-list container">
+            <GridCardArticle posts={posts} />
+          </div>
+        </section>
+      )
+    }
+  </main>
+</Layout>

@@ -1,0 +1,52 @@
+---
+import type { Metrics } from "@models/Post";
+
+import { EyeOpenIcon, ClockIcon, CalendarIcon } from "@radix-ui/react-icons";
+import { formatDate } from "src/utils";
+
+type Props = {
+  metrics: Metrics;
+  className?: string | "";
+};
+
+formatDate;
+
+const { metrics, className } = Astro.props;
+---
+
+<footer class={`footer-metrics ${className}`} aria-label="Footer metrics post">
+  <div class="footer-metrics__views item">
+    <span>{(<EyeOpenIcon />)}</span>
+    <span>{metrics.numberViews}</span>
+  </div>
+  <div class="footer-metrics__reading-time item">
+    <span>{(<ClockIcon />)}</span>
+    <span>{metrics.readingTime} min</span>
+  </div>
+  <div class="footer-metrics__date item">
+    <span>{(<CalendarIcon />)}</span>
+    <span
+      >{
+        metrics.updateAt
+          ? formatDate(metrics.updateAt)
+          : formatDate(metrics.createAt)
+      }</span
+    >
+  </div>
+</footer>
+
+<style>
+  .footer-metrics {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 320px;
+  }
+
+  .footer-metrics .item {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>

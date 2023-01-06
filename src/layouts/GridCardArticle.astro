@@ -1,0 +1,22 @@
+---
+import CardArticle from "@components/astro/CardArticle.astro";
+import type { PostInterface } from "@models/Post";
+
+type Props = {
+  posts: Array<PostInterface>;
+};
+
+const { posts } = Astro.props;
+---
+
+<div class="grid-card-articles">
+  {posts.map((post) => <CardArticle post={post} />)}
+</div>
+
+<style>
+  .grid-card-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+</style>

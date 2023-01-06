@@ -1,0 +1,16 @@
+---
+import BlogPostLayout from "@layouts/BlogPostLayout.astro";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  return [
+    {
+      params: { category: "dev" },
+    },
+  ];
+}
+---
+
+<BlogPostLayout>
+  <aside class="tags">tags</aside>
+</BlogPostLayout>

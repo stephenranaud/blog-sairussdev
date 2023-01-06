@@ -1,0 +1,35 @@
+---
+import { Image } from "@astrojs/image/components";
+
+import type { PostInterface } from "@models/Post";
+import MetricPost from "./MetricPost.astro";
+
+import "../../styles/components/_CardArticle.scss";
+import Button from "./Button.astro";
+
+type Props = {
+  post: PostInterface;
+};
+const { post } = Astro.props;
+---
+
+<article class="card-last-post">
+  <div class="card-last-post__heading">
+    <Image
+      src={post.heroImage.url}
+      width={544}
+      height={284}
+      format="jpg"
+      alt={post.heroImage.alt}
+    />
+  </div>
+  <p class="card-last-post__text">
+    {post.description}
+  </p>
+  <div class="card-last-post__metrics">
+    <MetricPost metrics={post.metrics} />
+  </div>
+  <div class="card-last-post__btn">
+    <Button className={"btn-primary"}>Lire</Button>
+  </div>
+</article>
