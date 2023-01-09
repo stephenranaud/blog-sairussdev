@@ -51,11 +51,11 @@ main {
     text-align: center;
     white-space: wrap;
     font-weight: 900;
-    font-size: 2rem;
+    font-size: $fs-3;
     text-transform: uppercase;
-
     background-color: $color-dark-txt;
     color: $color-accent-1;
+    padding: 1.5rem;
 
     span {
       display: flex;
@@ -67,8 +67,9 @@ main {
 
   @for $i from 1 through 10 {
     .item#{$i} {
-      $h: (random(170) + 80) + px;
-      height: $h;
+      $h: (random(170) + 100) + px;
+      min-height: content;
+      height: calc($h + 4vmin);
       box-shadow: 1px 1px 10px $color-dark-txt;
     }
   }

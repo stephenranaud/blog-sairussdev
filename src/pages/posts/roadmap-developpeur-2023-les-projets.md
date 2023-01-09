@@ -6,7 +6,7 @@ metrics:
   updateAt: null
 slug: hello-world
 heroImage:
-  url: "base-cover-1200x1000.png"
+  url: "/assets/base-cover-1200x1000.png"
   alt: "Image cover de SairussDev"
 tags: ["javascript"]
 category: "mood post"
