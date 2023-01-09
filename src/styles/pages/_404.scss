@@ -104,13 +104,13 @@ body {
   left: 30%;
   z-index: 10;
   .earth {
-    background: url(/public/img/earth.svg) no-repeat;
+    background: url(/public/assets/img/earth.svg) no-repeat;
     width: max(170px, min(30vw, 200px));
     height: max(170px, min(30vw, 200px));
   }
 
   .spaceship {
-    background: url(/public/img/rocket.svg) no-repeat;
+    background: url(/public/assets/img/rocket.svg) no-repeat;
     width: min(70px, max(40vw, 90px));
     height: min(70px, max(40vw, 90px));
   }
