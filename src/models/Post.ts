@@ -38,3 +38,22 @@ export function getFirstMoodPost(posts: PostInterface[]) {
         return firstDate - secondDate;
       })[0];
 }
+
+export function getLastPosts(posts: PostInterface[]) {
+  return [...posts].sort((a, b) => {
+    const date1 = new Date(a.metrics.updateAt ?? a.metrics.createAt).getTime();
+    const date2 = new Date(b.metrics.updateAt ?? b.metrics.createAt).getTime();
+    return date1 - date2;
+  });
+}
+
+export function uniqueTags(posts: PostInterface[]) {
+  return [
+    ...new Set(
+      [...posts]
+        .map((post) => post.tags)
+        .flat()
+        .sort((a, b) => a.localeCompare(b))
+    ),
+  ];
+}

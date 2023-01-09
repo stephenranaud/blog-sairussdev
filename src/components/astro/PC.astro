@@ -1,0 +1,44 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+}
+
+const { id, className } = Astro.props;
+const links = [
+  "https://media.tenor.com/GfSX-u7VGM4AAAAC/coding.gif",
+  "https://risibank.fr/cache/medias/0/14/1483/148314/full.gif",
+];
+---
+
+<div id={id} class={`monitor ${className}`}>
+  <div class="monitor" style="overflow: hidden;">
+    <img src="https://media.tenor.com/GfSX-u7VGM4AAAAC/coding.gif" alt="" />
+  </div>
+  <div class="base"></div>
+</div>
+
+<style>
+  .monitor {
+    height: calc(194px - 4vmin);
+  }
+  .monitor .monitor {
+    max-width: 275px;
+    height: 181px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px 10px 0px 0px;
+    padding: 9px;
+    border: solid 1px #e0e2e2;
+    background-color: black;
+  }
+
+  .base {
+    width: 321px;
+    height: 12px;
+    background: #e0e2e2;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0px 0px 6px 6px;
+  }
+</style>

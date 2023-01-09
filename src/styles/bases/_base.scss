@@ -101,6 +101,8 @@ select {
 
 button {
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: $fw-700;
   border: none;
 }
 

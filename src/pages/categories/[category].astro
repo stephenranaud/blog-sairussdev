@@ -1,16 +1,15 @@
 ---
-import BlogPostLayout from "@layouts/BlogPostLayout.astro";
-import Layout from "@layouts/Layout.astro";
+import LayoutCategories from "@layouts/LayoutCategorie.astro";
+
+import { categories } from "config";
 
 export async function getStaticPaths() {
-  return [
-    {
-      params: { category: "dev" },
-    },
-  ];
+  return categories.map((category) => {
+    return { params: { category } };
+  });
 }
+
+const { category } = Astro.params;
 ---
 
-<BlogPostLayout>
-  <aside class="tags">tags</aside>
-</BlogPostLayout>
+<LayoutCategories title={category ?? ""} />

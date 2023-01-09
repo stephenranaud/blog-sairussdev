@@ -33,7 +33,7 @@ const { post } = Astro.props;
 
     <div class="card-post__metrics">
       <MetricPost metrics={post.metrics} />
-      <a href="">
+      <a href={`/posts/${post.slug}`}>
         <Button className={"btn-primary"}>Lire</Button>
       </a>
     </div>

@@ -3,14 +3,35 @@
 .heading-post {
   display: flex;
   flex-flow: row wrap;
-  background-color: $color-dark-txt;
-  color: $color-dark-txt;
-
+  gap: 1rem;
   margin-bottom: -1rem;
+  padding: 2rem 0.7rem;
+  background-color: $color-dark-txt;
+  color: $color-txt;
 
   &__mood-posts {
-    color: $color-txt;
-    padding: 2rem 0.7rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+
+    &-infos {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &__last-articles {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  & .label-category {
+    margin: 0;
   }
 
   h3 {
@@ -18,13 +39,13 @@
     margin-top: 0.8rem;
   }
 
-  & > * {
-    flex: 1 1 300px;
-    width: 50%;
+  .label-last-post {
+    margin: 0;
   }
 }
 
 .posts {
   padding-top: min(10rem, max(5vmin, 14rem));
   background-color: $color-accent-1;
+  padding-bottom: 18rem;
 }

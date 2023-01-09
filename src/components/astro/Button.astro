@@ -17,6 +17,7 @@ const { className, type } = Astro.props;
     color: #1f1f1f;
     min-width: 100px;
     text-transform: uppercase;
+    transition: background-color 0.3s ease-in;
   }
 
   .btn-primary {
@@ -26,6 +27,18 @@ const { className, type } = Astro.props;
   }
 
   .btn-primary:hover {
+    background-color: #ff4900;
+  }
+
+  .btn-square {
+    padding: 0.4rem;
+    min-width: 45px;
+    min-height: 45px;
+    background-color: #e1831b;
+    font-size: 0.8rem;
+  }
+
+  .btn-square:hover {
     background-color: #ff4900;
   }
 

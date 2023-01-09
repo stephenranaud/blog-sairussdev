@@ -1,5 +1,49 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import Blob from "@components/astro/Blob.astro";
+import PC from "@components/astro/PC.astro";
+
+import { categories } from "config";
+
+import "../styles/pages/_home.scss";
+
+const lettersSairussDev = ["S", "A", "I", "R", "U", "S", "S", "D", "E", "V"];
 ---
 
-<Layout title="Accueil">Home</Layout>
+<Layout title="Accueil">
+  <main class="container">
+    <section class="wellcome-to">
+      <div class="wellcome-to__heading">
+        <h1 id="sairussdev">
+          {lettersSairussDev.map((letter) => <span>{letter}</span>)}
+        </h1>
+        <PC id="pc" />
+      </div>
+      <Blob />
+    </section>
+
+    <section class="masonry-grid">
+      {
+        categories.map((category) => {
+          return (
+            <a href={`/categories/${category}`}>
+              <div class="masonry-grid__item">
+                <span>{category}</span>
+              </div>
+            </a>
+          );
+        })
+      }
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const masonyItems = document.querySelectorAll(".masonry-grid__item");
+
+  masonyItems.forEach((masonyItem) => {
+    const i = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+    masonyItem.classList.add(`item${i}`);
+    console.log(masonyItem);
+  });
+</script>

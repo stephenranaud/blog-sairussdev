@@ -1,0 +1,81 @@
+---
+import type { PostInterface } from "@models/Post";
+import GridCardArticle from "./GridCardArticle.astro";
+import Layout from "./Layout.astro";
+import Tags from "@components/astro/Tags.astro";
+import { categories } from "config";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+console.log(title);
+
+let allPosts = await Astro.glob<PostInterface>("../pages/posts/*.md");
+allPosts = allPosts.filter(
+  (post) => !post.frontmatter.draft && post.frontmatter.category.includes(title)
+);
+
+const postsCategory = allPosts.map((post) => {
+  if (!post.frontmatter) {
+    throw Error("Page empty" + post.url);
+  }
+
+  let postWithMetrics = post.frontmatter;
+
+  const metrics = {
+    ...postWithMetrics.metrics,
+    createAt: postWithMetrics.metrics.createAt,
+    updateAt: postWithMetrics.metrics.updateAt,
+    readingTime: 111,
+    numberViews: 1213,
+  };
+
+  postWithMetrics = { ...postWithMetrics, metrics };
+
+  return postWithMetrics;
+});
+---
+
+<Layout title={title}>
+  <main class="container">
+    <aside class="tags">
+      <Tags tags={categories} />
+    </aside>
+    <section class="posts">
+      {
+        postsCategory.length !== 0 ? (
+          <GridCardArticle posts={postsCategory} />
+        ) : (
+          <div class="no-content">Cette catégorie est vide pour le moment</div>
+        )
+      }
+    </section>
+  </main>
+</Layout>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+  .posts {
+    margin-bottom: 7rem;
+    padding: 0.5rem;
+  }
+
+  .tags {
+    margin-bottom: 3rem;
+  }
+
+  .no-content {
+    font-weight: bold;
+    font-size: clamp(1.44rem, calc(1.33rem + 0.53vw), 1.76rem);
+    text-transform: uppercase;
+  }
+</style>
