@@ -143,8 +143,11 @@ button {
 
 .container {
   max-width: $container-size;
-  margin: auto;
   overflow-x: hidden;
+
+  @include tablet {
+    margin: auto;
+  }
 }
 
 .Link {
