@@ -1,7 +1,7 @@
 ---
 import type { Metrics } from "@models/Post";
 
-import { EyeOpenIcon, ClockIcon, CalendarIcon } from "@radix-ui/react-icons";
+import { GrClock, GrCalendar } from "react-icons/gr";
 import { formatDate } from "src/utils";
 
 type Props = {
@@ -16,15 +16,15 @@ const { metrics, className } = Astro.props;
 
 <footer class={`footer-metrics ${className}`} aria-label="Footer metrics post">
   <div class="footer-metrics__views item">
-    <span>{(<EyeOpenIcon />)}</span>
+    <span>{(<GrClock />)}</span>
     <span>{metrics.numberViews}</span>
   </div>
   <div class="footer-metrics__reading-time item">
-    <span>{(<ClockIcon />)}</span>
+    <span>{(<GrClock />)}</span>
     <span>{metrics.readingTime} min</span>
   </div>
   <div class="footer-metrics__date item">
-    <span>{(<CalendarIcon />)}</span>
+    <span>{(<GrCalendar />)}</span>
     <span
       >{
         metrics.updateAt

@@ -1,0 +1,17 @@
+---
+import { AiOutlineArrowLeft } from "react-icons/ai";
+---
+
+<button type="button" class="back-to-blog">
+  {(<AiOutlineArrowLeft />)}
+  <div><slot /></div>
+</button>
+
+<style>
+  .back-to-blog {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+</style>

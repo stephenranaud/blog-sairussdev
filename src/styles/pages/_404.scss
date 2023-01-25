@@ -7,7 +7,6 @@ body {
       rgb(130, 23, 159) 100%
     )
     no-repeat left top / cover;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -17,13 +16,13 @@ body {
 }
 
 .section-txt-404 {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: min(10rem, 10vmin);
   padding-bottom: min(10rem, 10vmin);
-  margin: 0 max(1rem, min(4rem, 30%));
   position: relative;
   z-index: 1000;
 
@@ -87,7 +86,6 @@ body {
     -webkit-opacity: 0.3;
     opacity: 0.3;
   }
-  90%,
   100% {
     -webkit-opacity: 1;
     opacity: 1;
@@ -100,7 +98,6 @@ body {
 .group-objects {
   position: absolute;
   top: 15%;
-  // left: calc(max(1rem, min(50vmin, 10rem)) + 10%);
   left: 30%;
   z-index: 10;
   .earth {

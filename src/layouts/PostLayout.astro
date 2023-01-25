@@ -2,9 +2,10 @@
 import type { MarkdownLayoutProps } from "astro";
 import Layout from "./Layout.astro";
 import Link from "@components/react/Link";
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
+
 import Tags from "@components/astro/Tags.astro";
 import { categories } from "config";
+import ButtonLeft from "@components/astro/ButtonLeft.astro";
 
 type FrontmatterPost = {
   title: string;
@@ -25,10 +26,7 @@ const frontmatter = Astro.props.frontmatter;
 
 <Layout title={frontmatter.title}>
   <a href="/blog">
-    <button type="button" class="back-to-blog">
-      {(<ArrowLeftIcon />)}
-      <div>Revenir aux posts</div>
-    </button>
+    <ButtonLeft>Revenir aux posts</ButtonLeft>
   </a>
 
   <main class="container post">
@@ -40,13 +38,6 @@ const frontmatter = Astro.props.frontmatter;
 </Layout>
 
 <style>
-  .back-to-blog {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 2rem 1rem;
-  }
-
   .post {
     padding: 2rem;
     margin-top: 7rem;

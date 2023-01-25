@@ -3,5 +3,5 @@ export const categories = [
   "developpement web",
   "conception logiciel",
   "mood post",
-  "algorithme et structure de données",
+  "algorithmes et structures de données",
 ];

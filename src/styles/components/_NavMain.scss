@@ -2,58 +2,83 @@
 @import "../utils/mixins";
 
 .nav-main {
-  line-height: 2rem;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: $color-accent-1;
   position: relative;
-  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &__list {
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    @include list-flex;
+    @include flex-center;
+  }
+
+  &__list li {
+    @include container-flex-center;
+
+    display: none;
+    position: absolute;
+    left: 1rem;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background-color: $color-primary-2;
   }
 
   &__menu-icon {
-    position: absolute;
-    top: 0.3rem;
-    right: 0.3rem;
-    scale: 1.5;
+    width: 35px;
+    height: 35px;
     color: $color-txt;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    z-index: 10000;
   }
 }
 
 .nav-main.active {
-  background-color: $color-accent-1;
+  .nav-main__list li {
+    display: flex;
+    &:nth-child(1) {
+      transform: translateX(-100px);
+    }
 
-  .nav-main__list {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-  }
+    &:nth-child(2) {
+      transform: translate(-100px, 100px);
+    }
 
-  .nav-main__menu-icon {
-    color: $color-dark-txt;
-  }
-
-  a {
-    color: $color-dark-txt;
-    font-weight: $fw-700;
-    display: inline-block;
+    &:nth-child(3) {
+      transform: translateY(100px);
+    }
   }
 }
 
 @include tablet {
   .nav-main {
-    &__menu-icon {
-      display: none;
-    }
+    height: inherit;
+    width: 100%;
+    border-radius: 0;
+    background-color: $color-dark-txt;
+    padding: 1rem;
 
     &__list {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      @include list-flex;
+      position: relative;
+      gap: 5rem;
+      left: 0;
+    }
+
+    &__list li {
+      display: inline-block;
+      position: static;
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    .nav-main__menu-icon {
+      display: none;
     }
   }
 }

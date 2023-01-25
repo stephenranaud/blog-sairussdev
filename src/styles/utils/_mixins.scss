@@ -19,7 +19,6 @@
 @mixin list-flex {
   display: flex;
   flex-direction: row;
-  gap: max(1.2rem, 10vmin);
 }
 
 @mixin flex-x {
@@ -28,8 +27,25 @@
 }
 
 @mixin absolute-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin container-absolute-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin container-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
