@@ -9,6 +9,7 @@ body {
 #blob {
   position: absolute;
   z-index: -1;
+  overflow: hidden;
   left: 40%;
 }
 
@@ -35,7 +36,6 @@ main {
 
 #pc {
   position: absolute;
-  left: 0;
   bottom: 0rem;
 }
 
@@ -55,7 +55,7 @@ main {
     margin-bottom: 1rem;
     width: 100%;
     min-width: 200px;
-    max-width: 500px;
+    max-width: 450px;
     text-align: center;
     margin-bottom: 5rem;
     font-weight: 900;
@@ -119,7 +119,7 @@ main {
   flex-direction: row;
   gap: 2rem;
   width: 100%;
-  height: calc(452px + 7vmin);
+  height: calc(552px + 7vmin);
   color: $color-dark-txt;
   padding: 0.7rem 1rem;
   position: relative;
@@ -137,7 +137,6 @@ main {
     h1 {
       font-size: calc($fs-5 * 1.2);
       color: $color-dark-txt;
-      min-width: 300px;
       max-width: 500px;
 
       span {
@@ -171,5 +170,16 @@ main {
 
   #pc {
     transform: scale(0.8);
+    left: -5%;
+  }
+
+  .wellcome-to {
+    &__heading {
+      h1 {
+        font-size: calc($fs-5);
+        white-space: pre-wrap;
+        margin: 0;
+      }
+    }
   }
 }

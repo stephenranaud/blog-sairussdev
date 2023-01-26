@@ -1,5 +1,5 @@
-import { GrBlog, GrMenu, GrHomeRounded } from "react-icons/gr";
-import { SiAboutdotme } from "react-icons/si";
+import { GrBlog, GrMenu, GrHomeRounded } from "react-icons/gr/index.js";
+import { SiAboutdotme } from "react-icons/si/index.js";
 
 import Link from "./Link";
 
