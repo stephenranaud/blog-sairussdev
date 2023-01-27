@@ -21,7 +21,10 @@
         "src/models/*"
       ],
       "@utils": [
-        "src/utils"
+        "src/utils/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
       ]
     }
   }

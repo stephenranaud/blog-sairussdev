@@ -1,11 +1,6 @@
 @import "../utils/vars";
 @import "../utils/mixins";
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 main {
   flex: 1;
   padding: 1rem max(1rem, min(2vmin, 2.5rem));

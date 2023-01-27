@@ -1,11 +1,6 @@
 @import "../utils/vars";
 @import "../utils/mixins";
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 #blob {
   position: absolute;
   z-index: -1;

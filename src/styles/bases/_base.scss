@@ -28,13 +28,17 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  min-height: 100vh;
+html {
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   background-color: $color-primary-1;

@@ -6,8 +6,6 @@ import PC from "@components/astro/PC.astro";
 import { categories } from "config";
 
 import "../styles/pages/_home.scss";
-
-const lettersSairussDev = ["S", "A", "I", "R", "U", "S", "S", "D", "E", "V"];
 ---
 
 <Layout title="Accueil">
@@ -15,8 +13,8 @@ const lettersSairussDev = ["S", "A", "I", "R", "U", "S", "S", "D", "E", "V"];
     <section class="wellcome-to">
       <div class="wellcome-to__heading">
         <h1>
-          Hello le devs je suis <span>Sairuss</span><br />
-          bienvenue sur mon blog, <span>Go Rapax</span> 🦅
+          Hello je suis <span>Sairuss</span><br />
+          bienvenue sur le blog, des <span>Rapax</span> 🦅
         </h1>
 
         <PC id="pc" />
@@ -31,7 +29,7 @@ const lettersSairussDev = ["S", "A", "I", "R", "U", "S", "S", "D", "E", "V"];
             <a href={`/categories/${category}`}>
               <div class="masonry-grid-card">
                 <header class="masonry-grid-card__heading">
-                  <img src="/src/assets/img/icons/development.png" alt="" />
+                  <img src="/assets/img/development.png" alt="" />
                   <h3 class="title">{category}</h3>
                 </header>
                 <div class="masonry-grid-card__body">
