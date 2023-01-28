@@ -6,7 +6,7 @@ metrics:
   updateAt: null
 slug: roadmap-developpeur-2023-backend-developer
 heroImage:
-  url: "/assets/base-cover-1200x1000.png"
+  url: "/assets/road.jpg"
   alt: "Image cover de SairussDev"
 tags: ["algorithme", "javascript", "c++"]
 category: mood post
