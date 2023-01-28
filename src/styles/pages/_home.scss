@@ -3,6 +3,7 @@
 
 #blob {
   position: absolute;
+  top: 10%;
   z-index: -1;
   overflow: hidden;
   left: 40%;
@@ -31,7 +32,8 @@ main {
 
 #pc {
   position: absolute;
-  bottom: 0rem;
+  left: 50%;
+  transform: translateX(-50%) scale(1.2);
 }
 
 .masonry-grid {
@@ -47,17 +49,16 @@ main {
 
   &-card {
     display: inline-block;
-    margin-bottom: 1rem;
     width: 100%;
     min-width: 200px;
     max-width: 450px;
     text-align: center;
     margin-bottom: 5rem;
     font-weight: 900;
-
     text-transform: uppercase;
     background-color: $color-dark-txt;
     color: $color-txt;
+    transition: all ease-in 500ms 100ms;
 
     &__heading {
       background-color: $color-accent-1;
@@ -68,6 +69,9 @@ main {
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
+      // transform: translateY(50%);
+      position: relative;
+      z-index: 3;
     }
 
     &__heading img {
@@ -86,6 +90,7 @@ main {
       padding-top: 1rem;
       text-align: center;
       padding: 1.2rem 1rem;
+      //transform: translateY(-50%);
     }
 
     .title {
@@ -94,7 +99,7 @@ main {
     }
   }
 
-  &-card:hover img {
+  &-card.visible img {
     opacity: 1;
   }
 
@@ -141,15 +146,14 @@ main {
   }
 }
 
+.masonry-grid-card.visible {
+  //color: red;
+}
+
 @include tablet {
   #sairussdev {
     font-size: calc($fs-5 * 2.3);
     text-align: left;
-  }
-
-  #pc {
-    left: 47%;
-    transform: scale(1.5);
   }
 
   .masonry-grid {
@@ -159,13 +163,13 @@ main {
 
 @include mobile {
   #blob {
-    bottom: 20%;
     left: 5%;
   }
 
   #pc {
-    transform: scale(0.8);
-    left: -5%;
+    left: 50%;
+    bottom: -4.5rem;
+    transform: translateX(-50%) scale(0.7);
   }
 
   .wellcome-to {

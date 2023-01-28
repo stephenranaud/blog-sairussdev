@@ -22,7 +22,7 @@ import "../styles/pages/_home.scss";
       <Blob />
     </section>
 
-    <section class="masonry-grid">
+    <section id="container-masonry-1" class="masonry-grid">
       {
         categories.map((category) => {
           return (
@@ -47,10 +47,37 @@ import "../styles/pages/_home.scss";
 </Layout>
 
 <script>
-  const masonyItems = document.querySelectorAll(".masonry-grid-card");
+  const masonryItems = document.querySelectorAll(".masonry-grid-card");
 
-  masonyItems.forEach((masonyItem) => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    },
+    {
+      rootMargin: "0px",
+      threshold: 0.7,
+    }
+  );
+
+  if (masonryItems) {
+    masonryItems.forEach((masonryItem) => {
+      observer.observe(masonryItem);
+    });
+  }
+
+  masonryItems.forEach((masonyItem) => {
     const i = Math.floor(Math.random() * 10) + 1;
-    masonyItem.classList.add(`item${i}`);
+
+    if (masonryItems) {
+      masonyItem.classList.add(`item${i}`);
+    } else {
+      throw new Error("Element with class masonry-grid-card not found");
+    }
   });
 </script>
