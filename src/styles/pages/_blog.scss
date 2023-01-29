@@ -48,4 +48,10 @@
   padding-top: min(10rem, max(5vmin, 14rem));
   background-color: $color-accent-1;
   padding-bottom: 18rem;
+
+  &-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
 }

@@ -1,10 +1,12 @@
 ---
 import { Image } from "@astrojs/image/components";
 
+import { AiOutlineArrowRight } from "react-icons/ai";
+
 import type { PostInterface } from "@models/Post";
+
 import MetricPost from "./MetricPost.astro";
 import Button from "./Button.astro";
-import ButtonLeft from "./ButtonLeft.astro";
 
 import "../../styles/components/_CardArticle.scss";
 
@@ -23,20 +25,22 @@ const { post } = Astro.props;
       format="jpg"
       alt={post.heroImage.alt}
     />
-
-    <div class="card-last-post__btn">
-      <a href={`/posts/${post.slug}`}>
-        <Button className={"btn-square"}>{(<ButtonLeft />)}</Button>
-      </a>
-    </div>
   </div>
   <div class="card-last-post__body">
     <p class="card-last-post__text">
       {post.description}
     </p>
-    <div class="card-last-post__metrics">
-      <MetricPost metrics={post.metrics} />
-      <span class="label-category">{post.category}</span>
+    <div class="card-last-post__more">
+      <div class="card-last-post__metrics">
+        <MetricPost metrics={post.metrics} />
+        <span class="label-category">{post.category}</span>
+      </div>
+
+      <div class="card-last-post__btn">
+        <a href={`/posts/${post.slug}`}>
+          <Button className={"btn-square"}>{(<AiOutlineArrowRight />)}</Button>
+        </a>
+      </div>
     </div>
   </div>
 </article>

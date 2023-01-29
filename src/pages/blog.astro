@@ -9,8 +9,10 @@ import Button from "@components/astro/Button.astro";
 import { PostInterface, getLastPosts } from "@models/Post";
 import { getFirstMoodPost } from "@models/Post";
 
-import "@styles/pages/_blog.scss";
 import CardLastArticle from "@components/astro/CardLastArticle.astro";
+import FilterPosts from "@components/react/FilterPosts";
+
+import "@styles/pages/_blog.scss";
 
 let allPosts = await Astro.glob<PostInterface>("../pages/posts/*.md");
 allPosts = allPosts.filter((post) => !post.frontmatter.draft);
@@ -27,7 +29,6 @@ const posts = allPosts.map((post) => {
     createAt: postWithMetrics.metrics.createAt,
     updateAt: postWithMetrics.metrics.updateAt,
     readingTime: 0,
-    numberViews: 0,
   };
 
   postWithMetrics = { ...postWithMetrics, metrics };
@@ -85,14 +86,17 @@ const lastPosts = getLastPosts(posts).slice(0, 3);
       <div class="posts-search__input"></div>
     </section>
 
-    {
-      posts && (
-        <section class="posts">
+    <section class="posts">
+      <div class="posts-filter"><FilterPosts client:load posts={posts} /></div>
+      {
+        posts ? (
           <div class="posts-list container">
             <GridCardArticle posts={posts} />
           </div>
-        </section>
-      )
-    }
+        ) : (
+          <div>Aucun post</div>
+        )
+      }
+    </section>
   </main>
 </Layout>

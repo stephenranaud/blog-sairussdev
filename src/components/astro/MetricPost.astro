@@ -15,16 +15,12 @@ const { metrics, className } = Astro.props;
 ---
 
 <footer class={`footer-metrics ${className}`} aria-label="Footer metrics post">
-  <div class="footer-metrics__views item">
-    <span>{(<GrClock />)}</span>
-    <span>{metrics.numberViews}</span>
-  </div>
   <div class="footer-metrics__reading-time item">
-    <span>{(<GrClock />)}</span>
+    <span>{(<GrClock className="footer-metrics__icone" />)}</span>
     <span>{metrics.readingTime} min</span>
   </div>
   <div class="footer-metrics__date item">
-    <span>{(<GrCalendar />)}</span>
+    <span>{(<GrCalendar className="footer-metrics__icone" />)}</span>
     <span
       >{
         metrics.updateAt
@@ -48,5 +44,10 @@ const { metrics, className } = Astro.props;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-metrics__icone {
+    stroke-width: 1px;
   }
 </style>

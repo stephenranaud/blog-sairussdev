@@ -1,0 +1,26 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.filter-posts {
+  overflow-x: auto;
+}
+
+.filter-posts-tags {
+  display: flex;
+  gap: 0.5rem;
+  &__item {
+    background-color: $color-dark-txt;
+    color: $color-txt;
+    font-weight: $fw-700;
+    padding: 1rem;
+    text-transform: capitalize;
+    white-space: nowrap;
+    cursor: pointer;
+    @include container-flex-center;
+  }
+
+  &__item.active {
+    background-color: $color-txt;
+    color: $color-dark-txt;
+  }
+}
