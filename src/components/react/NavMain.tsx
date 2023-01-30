@@ -1,4 +1,5 @@
 import { GrBlog, GrMenu, GrHomeRounded } from "react-icons/gr/index.js";
+import { RxCross2 } from "react-icons/rx/index.js";
 import { SiAboutdotme } from "react-icons/si/index.js";
 
 import Link from "./Link";
@@ -15,7 +16,11 @@ export default function NavMain(): JSX.Element {
 
   return (
     <nav className={`nav-main ${active ? "active" : ""}`} aria-label="Nav main">
-      <GrMenu onClick={handleClick} className="nav-main__menu-icon" />
+      {active ? (
+        <RxCross2 onClick={handleClick} className="nav-main__menu-icon" />
+      ) : (
+        <GrMenu onClick={handleClick} className="nav-main__menu-icon" />
+      )}
 
       <ul className="nav-main__list">
         <li>

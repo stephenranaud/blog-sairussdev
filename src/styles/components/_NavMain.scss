@@ -2,11 +2,11 @@
 @import "../utils/mixins";
 
 .nav-main {
+  position: relative;
   height: 60px;
   width: 60px;
   border-radius: 50%;
   background-color: $color-accent-1;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,22 +20,23 @@
   &__list li {
     @include container-flex-center;
 
-    display: none;
+    visibility: hidden;
     position: absolute;
-    left: 1rem;
+    left: 15%;
     white-space: nowrap;
     font-size: 1.5rem;
     height: 45px;
     width: 45px;
     border-radius: 50%;
-    background-color: $color-primary-2;
-    transition: all ease 1s;
+    background-color: transparent;
+    z-index: 100;
+    transition: all ease 700ms;
   }
 
   &__menu-icon {
     width: 35px;
     height: 35px;
-    color: $color-txt;
+    color: $color-dark-txt;
     cursor: pointer;
     z-index: 10000;
   }
@@ -43,8 +44,10 @@
 
 .nav-main.active {
   .nav-main__list li {
+    visibility: visible;
+    background-color: $color-primary-2;
     display: flex;
-    transition: all ease 1s;
+    transition: all ease 700ms;
     &:nth-child(1) {
       transform: translateX(-100px);
     }
