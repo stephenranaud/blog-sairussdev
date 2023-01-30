@@ -10,20 +10,22 @@ const { tags } = Astro.props;
 
 <div class="tags">
   {
-    tags.map((tag, index) => {
-      return (
-        <a href={`/categories/${tag}`}>
-          <div
-            class="tag"
-            style={` animation: top-down ease-in-out 440ms ${
-              index * 310
-            }ms forwards;`}
-          >
-            {tag}
-          </div>
-        </a>
-      );
-    })
+    [...tags]
+      .sort((a, b) => a.localeCompare(b))
+      .map((tag, index) => {
+        return (
+          <a href={`/categories/${tag}`}>
+            <div
+              class="tag"
+              style={` animation: top-down ease-in-out 440ms ${
+                index * 310
+              }ms forwards;`}
+            >
+              {tag}
+            </div>
+          </a>
+        );
+      })
   }
 </div>
 
