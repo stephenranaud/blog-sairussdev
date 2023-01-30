@@ -20,7 +20,6 @@
   &__list li {
     @include container-flex-center;
 
-    visibility: hidden;
     position: absolute;
     left: 15%;
     white-space: nowrap;
@@ -44,7 +43,6 @@
 
 .nav-main.active {
   .nav-main__list li {
-    visibility: visible;
     background-color: $color-primary-2;
     display: flex;
     transition: all ease 700ms;

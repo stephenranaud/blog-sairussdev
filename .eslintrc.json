@@ -1,13 +1,22 @@
 {
-  "extends": ["plugin:astro/recommended"],
+  "extends": [
+    "plugin:astro/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "overrides": [
     {
-      "files": ["*.astro"],
+      "files": [
+        "*.astro"
+      ],
       "parser": "astro-eslint-parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": [".astro"]
+        "extraFileExtensions": [
+          ".astro"
+        ],
+        "rules": {
+          "no-console": "warn"
+        }
       }
     }
   ]

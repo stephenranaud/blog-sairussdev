@@ -1,6 +1,8 @@
 ---
+import { TypeOfCategory } from "src/utils";
+
 interface Props {
-  tags: Array<string>;
+  tags: Array<TypeOfCategory>;
 }
 
 const { tags } = Astro.props;
@@ -8,11 +10,20 @@ const { tags } = Astro.props;
 
 <div class="tags">
   {
-    tags.map((tag) => (
-      <a href={`/categories/${tag}`}>
-        <div class="tag">{tag}</div>
-      </a>
-    ))
+    tags.map((tag, index) => {
+      return (
+        <a href={`/categories/${tag}`}>
+          <div
+            class="tag"
+            style={` animation: top-down ease-in-out 440ms ${
+              index * 310
+            }ms forwards;`}
+          >
+            {tag}
+          </div>
+        </a>
+      );
+    })
   }
 </div>
 
@@ -24,11 +35,29 @@ const { tags } = Astro.props;
     gap: 0.5rem;
     padding: 0.5rem 0.2rem;
     font-size: clamp(1rem, calc(0.96rem + 0.21vw), 1.13rem);
+    overflow: hidden;
   }
 
   .tag {
-    border: 2px solid #dedede;
+    border: 2px solid #f8f8f9;
     padding: 0.2rem 0.4rem;
     border-radius: 5px;
+    text-transform: capitalize;
+    background-color: #dedede;
+    transition: background-color ease-in 200ms;
+    transform: translateY(-15rem);
+
+    color: #1f1f1f;
+    font-weight: 700;
+  }
+
+  .tag:hover {
+    background-color: #f8f8f9;
+  }
+
+  @keyframes top-down {
+    100% {
+      transform: translateY(0rem);
+    }
   }
 </style>

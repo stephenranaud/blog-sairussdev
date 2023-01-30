@@ -1,3 +1,5 @@
+import { categories } from "config";
+
 export function slug(txt: string) {
   return txt
     .toLowerCase()
@@ -19,3 +21,5 @@ export const formatDate = (date: string): string => {
 export type OgarnizeDatasFunction = <T>(
   list: Array<T> | null
 ) => Array<T> | null;
+
+export type TypeOfCategory = typeof categories[number];

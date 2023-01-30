@@ -16,6 +16,7 @@
     text-transform: capitalize;
     white-space: nowrap;
     cursor: pointer;
+    transition: background-color ease-in 350ms;
     @include container-flex-center;
   }
 

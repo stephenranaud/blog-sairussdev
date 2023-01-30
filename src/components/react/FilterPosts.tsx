@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { categoriesStore } from "../../store/postsStore";
+
 import type { PostInterface } from "@models/Post";
 import { categories } from "config";
 
@@ -23,9 +25,15 @@ function CategoryItem({ category, className }: PropsCategoryItem) {
 }
 
 export default function FilterPosts({ posts }: Props) {
-  console.log(posts);
   // const [isMounted, setIsMounted] = useState(false);
   const [activeTag, setActiveTag] = useState<Element | null>(null);
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (e.target instanceof Element && e.target.textContent) {
+      categoriesStore.set(e.target.textContent);
+      setActiveTag(e.target);
+    }
+  };
 
   useEffect(() => {
     const current = document.querySelector(".filter-posts-tags__item.active");
@@ -41,10 +49,6 @@ export default function FilterPosts({ posts }: Props) {
   }, [activeTag]);
 
   // useEffect(() => setIsMounted(true), []);
-
-  const handleClick = (e: React.MouseEvent) => {
-    setActiveTag(e.target);
-  };
 
   return (
     <div className="filter-posts">

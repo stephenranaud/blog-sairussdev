@@ -10,7 +10,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-console.log(title);
 
 let allPosts = await Astro.glob<PostInterface>("../pages/posts/*.md");
 allPosts = allPosts.filter(
@@ -70,6 +69,7 @@ const postsCategory = allPosts.map((post) => {
 
   .tags {
     margin-bottom: 3rem;
+    margin-left: 0.3rem;
   }
 
   .no-content {
