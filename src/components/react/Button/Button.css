@@ -1,0 +1,73 @@
+.btn {
+  padding: 0.4rem 1.2rem;
+  font-weight: bold;
+  color: #1f1f1f;
+  min-width: 100px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in;
+}
+
+.btn-primary {
+  background-color: #e1831b;
+  color: #f8f8f9;
+  transition: background-color ease-in 300ms;
+}
+
+.btn-primary:hover {
+  background-color: #ff4900;
+}
+
+.btn-square {
+  padding: 0.4rem;
+  min-width: 45px;
+  min-height: 45px;
+  background-color: #e1831b;
+  font-size: 0.8rem;
+}
+
+.btn-square:hover {
+  background-color: #ff4900;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(144deg, #00bfff, #00ed64 50%, #3cd070);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+
+button:hover::before {
+  transform: none;
+}
+
+button span {
+  display: inline-block;
+  padding: 1.2rem 2.2rem;
+  transition: transform 0.5s;
+}
+
+button:hover span {
+  transform: translateX(100%);
+}

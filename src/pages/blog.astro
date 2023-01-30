@@ -2,7 +2,7 @@
 import { Image } from "@astrojs/image/components";
 
 import MetricPost from "@components/astro/MetricPost.astro";
-import GridCardArticle from "@layouts/GridCardArticle.astro";
+import GridCardPosts from "@components/react/GridCardPosts";
 import Layout from "@layouts/Layout.astro";
 import Button from "@components/astro/Button.astro";
 
@@ -91,7 +91,7 @@ const lastPosts = getLastPosts(posts).slice(0, 3);
       {
         posts ? (
           <div class="posts-list container">
-            <GridCardArticle posts={posts} />
+            <GridCardPosts posts={posts} client:load />
           </div>
         ) : (
           <div>Aucun post</div>

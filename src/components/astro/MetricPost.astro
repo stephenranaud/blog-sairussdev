@@ -1,7 +1,7 @@
 ---
 import type { Metrics } from "@models/Post";
 
-import { GrClock, GrCalendar } from "react-icons/gr/index.js";
+import { BsClock, BsCalendar } from "react-icons/bs/index.js";
 import { formatDate } from "src/utils";
 
 type Props = {
@@ -16,11 +16,11 @@ const { metrics, className } = Astro.props;
 
 <footer class={`footer-metrics ${className}`} aria-label="Footer metrics post">
   <div class="footer-metrics__reading-time item">
-    <span>{(<GrClock className="footer-metrics__icone" />)}</span>
+    <span>{(<BsClock className="footer-metrics__icone" />)}</span>
     <span>{metrics.readingTime} min</span>
   </div>
   <div class="footer-metrics__date item">
-    <span>{(<GrCalendar className="footer-metrics__icone" />)}</span>
+    <span>{(<BsCalendar className="footer-metrics__icone" />)}</span>
     <span
       >{
         metrics.updateAt
@@ -45,9 +45,5 @@ const { metrics, className } = Astro.props;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
-  }
-
-  .footer-metrics__icone {
-    stroke-width: 1px;
   }
 </style>

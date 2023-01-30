@@ -1,0 +1,14 @@
+.footer-metrics {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  max-width: 320px;
+}
+
+.footer-metrics .item {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}

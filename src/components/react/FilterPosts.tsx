@@ -23,8 +23,8 @@ function CategoryItem({ category, className }: PropsCategoryItem) {
 }
 
 export default function FilterPosts({ posts }: Props) {
-  const [isMounted, setIsMounted] = useState(false);
-
+  console.log(posts);
+  // const [isMounted, setIsMounted] = useState(false);
   const [activeTag, setActiveTag] = useState<Element | null>(null);
 
   useEffect(() => {
@@ -40,30 +40,28 @@ export default function FilterPosts({ posts }: Props) {
     }
   }, [activeTag]);
 
-  useEffect(() => setIsMounted(true), []);
+  // useEffect(() => setIsMounted(true), []);
 
   const handleClick = (e: React.MouseEvent) => {
     setActiveTag(e.target);
   };
 
   return (
-    isMounted && (
-      <div className="filter-posts">
-        <div className="filter-posts-tags" onClick={handleClick}>
-          {["all", ...categories].map((category) => {
-            if (category === "all") {
-              return (
-                <CategoryItem
-                  key={category}
-                  className="active"
-                  category={category}
-                />
-              );
-            }
-            return <CategoryItem key={category} category={category} />;
-          })}
-        </div>
+    <div className="filter-posts">
+      <div className="filter-posts-tags" onClick={handleClick}>
+        {["all", ...categories].map((category) => {
+          if (category === "all") {
+            return (
+              <CategoryItem
+                key={category}
+                className="active"
+                category={category}
+              />
+            );
+          }
+          return <CategoryItem key={category} category={category} />;
+        })}
       </div>
-    )
+    </div>
   );
 }
