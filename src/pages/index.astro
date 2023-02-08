@@ -14,7 +14,7 @@ import "../styles/pages/_home.scss";
       <div class="wellcome-to__heading">
         <h1 id="main-title">
           Hello je suis <span>Sairuss</span><br />
-          bienvenue sur le blog, des <span>Rapax</span> 🦅
+          bienvenue sur le blog, des <span>Rapax</span> 🦅.
         </h1>
 
         <PC id="pc" />
@@ -23,7 +23,13 @@ import "../styles/pages/_home.scss";
     </section>
 
     <section id="container-masonry-1" class="masonry-grid">
-      {
+      <h1 style="color: red">
+        Je refais le design graphique de mon blog, j'ai des problemes
+        d'inspiration. <a href="https://my-fcc-summary-sairussdev.netlify.app/"
+          >voir ici pour rester cohérent</a
+        >
+      </h1>
+      <!-- {
         categories.map((category) => {
           return (
             <a href={`/categories/${category}`}>
@@ -41,7 +47,7 @@ import "../styles/pages/_home.scss";
             </a>
           );
         })
-      }
+      } -->
     </section>
   </main>
 </Layout>
@@ -70,14 +76,4 @@ import "../styles/pages/_home.scss";
       observer.observe(masonryItem);
     });
   }
-
-  masonryItems.forEach((masonyItem) => {
-    const i = Math.floor(Math.random() * 10) + 1;
-
-    if (masonryItems) {
-      masonyItem.classList.add(`item${i}`);
-    } else {
-      throw new Error("Element with class masonry-grid-card not found");
-    }
-  });
 </script>
